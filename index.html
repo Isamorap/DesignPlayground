@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Playground del sistema de diseño Nevados: tokens, botones, estados, cards, formularios y tablas." />
+  <title>Sistema Nevados · Playground de diseño</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="tokens.css?v=2026-09-26" />
+  <link rel="stylesheet" href="components.css?v=2026-09-26" />
+</head>
+
+<body>
+  <header class="navwrap">
+    <nav class="navpill" aria-label="Principal">
+      <a class="brand" href="#top">
+        <img id="brandMark" src="assets/logo.png" alt="Nevados" height="30" />
+        <span>Sistema <strong>Nevados</strong></span>
+      </a>
+      <div class="navmenu">
+        <button id="menuBtn" class="menubtn" type="button" aria-haspopup="true" aria-expanded="false">
+          Secciones <span class="material-symbols-outlined">expand_more</span>
+        </button>
+        <div class="menu" id="menuList" hidden>
+          <a href="#tokens"><b>01</b>Tokens</a>
+          <a href="#iconografia"><b>02</b>Iconos</a>
+          <a href="#botones"><b>03</b>Botones</a>
+          <a href="#estados"><b>04</b>Estados</a>
+          <a href="#cards"><b>05</b>Cards</a>
+          <a href="#forms"><b>06</b>Forms</a>
+          <a href="#sistema"><b>07</b>Sistema</a>
+          <a href="#navegacion"><b>08</b>Navegación</a>
+          <a href="#verano"><b>09</b>Verano</a>
+          <a href="#responsive"><b>10</b>Responsive</a>
+        </div>
+      </div>
+      <button id="themeToggle" class="iconbtn" type="button" aria-label="Cambiar tema">
+        <span class="material-symbols-outlined">dark_mode</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO asimétrico -->
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Playground</p>
+        <h1>Un solo idioma visual para toda la montaña</h1>
+        <p class="lead">Tokens, componentes y patrones probados para Forms, dashboards, pantallas y correos. Nada aquí
+          es decoración: todo se copia.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary btn-lg" href="#tokens">
+            Ver tokens
+            <span class="btn-ring"><svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 12 12 2M4 2h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></span>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#cards">Ver componentes</a>
+        </div>
+      </div>
+      <div class="hero-media shell">
+        <div class="shell-core">
+          <img src="assets/cover.jpg" alt="Cordillera nevada al atardecer" width="1600" height="907" />
+          <p class="hero-chip"><span class="dot dot-ok"></span>Temporada · Invierno 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOKENS -->
+    <section id="tokens" class="section">
+      <h2>Tokens: diseño para recordar</h2>
+      <p class="section-sub">Azules de marca + grises fríos de una sola familia. El único cálido es el cobre. Clic en
+        cualquier muestra para copiar el hex.</p>
+      <div class="swatch-groups">
+        <div>
+          <h3>Marca y neutros</h3>
+          <div class="swatches" data-swatches="brand"></div>
+        </div>
+        <div>
+          <h3>Acento y naturaleza</h3>
+          <div class="swatches" data-swatches="accent"></div>
+        </div>
+        <div>
+          <h3>Semánticos (los de operaciones)</h3>
+          <div class="swatches" data-swatches="semantic"></div>
+        </div>
+      </div>
+
+      <div class="token-duo">
+        <div class="token-pane">
+          <h3>Tipografía</h3>
+          <p class="type-display">Andariveles 8/12</p>
+          <p class="spec"><strong>--text-display</strong> · clamp(2.4rem, 1.4rem + 4vw, 4.2rem) · Montserrat 800</p>
+          <p class="type-h2">Pistas abiertas por zona</p>
+          <p class="spec"><strong>--text-h2</strong> · clamp(1.5rem, 1.2rem + 1.4vw, 2.1rem) · 700</p>
+          <p class="type-body">El reporte de hoy incluye 12 pistas de bike park con estado, horario y observaciones del
+            operador.</p>
+          <p class="spec"><strong>--text-body-size</strong> · 0.95rem / 1.55 · 400</p>
+          <p class="type-mono">--brand-navy: #00334e; --copper-500: #c96f2e;</p>
+          <p class="spec"><strong>--font-mono</strong> · solo código y tokens</p>
+        </div>
+        <div class="token-pane">
+          <h3>Radios y sombras</h3>
+          <div class="shape-row">
+            <span class="shape" style="border-radius: var(--radius-sm)">sm</span>
+            <span class="shape" style="border-radius: var(--radius-md)">md</span>
+            <span class="shape" style="border-radius: var(--radius-lg)">lg</span>
+            <span class="shape" style="border-radius: var(--radius-pill)">pill</span>
+          </div>
+          <p class="spec"><strong>radio</strong> · sm 8px · md 12px · lg 16px · pill 999px</p>
+          <div class="shape-row">
+            <span class="shape shadow-1">1</span>
+            <span class="shape shadow-2">2</span>
+            <span class="shape shadow-3">3</span>
+          </div>
+          <p class="spec"><strong>shadows</strong> · 3 niveles teñidos al fondo, nunca negro puro</p>
+        </div>
+      </div>
+      <div class="token-pane token-wide">
+        <h3>Espaciado y movimiento</h3>
+        <div class="space-row">
+          <span class="space-bar"><i style="height: 4px"></i><span>1</span></span>
+          <span class="space-bar"><i style="height: 8px"></i><span>2</span></span>
+          <span class="space-bar"><i style="height: 12px"></i><span>3</span></span>
+          <span class="space-bar"><i style="height: 16px"></i><span>4</span></span>
+          <span class="space-bar"><i style="height: 24px"></i><span>6</span></span>
+          <span class="space-bar"><i style="height: 32px"></i><span>8</span></span>
+          <span class="space-bar"><i style="height: 48px"></i><span>12</span></span>
+          <span class="space-bar"><i style="height: 64px"></i><span>16</span></span>
+          <span class="space-bar"><i style="height: 96px"></i><span>24</span></span>
+        </div>
+        <p class="spec"><strong>space</strong> · 4 8 12 16 24 32 48 64 96 — solo estos 9 valores</p>
+        <div class="motion-row">
+          <span class="motion-chip" style="--dur: var(--dur-1)">160ms</span>
+          <span class="motion-chip" style="--dur: var(--dur-2)">280ms</span>
+          <span class="motion-chip" style="--dur: var(--dur-3)">650ms</span>
+        </div>
+        <p class="spec"><strong>motion</strong> · dur 160/280/650 · ease-out cubic-bezier(.32,.72,0,1) · pasa el mouse:
+          1 micro, 2 estándar, 3 reveals</p>
+      </div>
+    </section>
+
+    <!-- ICONOGRAFÍA -->
+    <section id="iconografia" class="section">
+      <h2>Iconografía de Nevados, tal cual</h2>
+      <p class="section-sub">Negros sobre claro, blancos sobre oscuro o color, dificultad con color propio, combos del
+        bike park y montaña por defecto. Tamaños fijos, nunca deformar.</p>
+      <div class="token-pane">
+        <h3>Andariveles · negros</h3>
+        <div class="icon-row">
+          <span class="icon-cell"><img src="assets/icons/lift/andarivel-doble.png" alt="" width="28"
+              height="28" /><span>doble</span></span>
+          <span class="icon-cell"><img src="assets/icons/lift/andarivel-triple.png" alt="" width="28"
+              height="28" /><span>triple</span></span>
+          <span class="icon-cell"><img src="assets/icons/lift/andarivel-cuadruple.png" alt="" width="28"
+              height="28" /><span>cuádruple</span></span>
+          <span class="icon-cell"><img src="assets/icons/lift/arrastre.png" alt="" width="28"
+              height="28" /><span>arrastre</span></span>
+          <span class="icon-cell"><img src="assets/icons/lift/magic-carpet.png" alt="" width="28"
+              height="28" /><span>magic</span></span>
+        </div>
+        <p class="spec"><strong>lift</strong> · 24–28px · negros sobre claro · al lado del nombre</p>
+        <h3>Blancos · sobre oscuro o color</h3>
+        <div class="icon-row">
+          <span class="icon-cell"><span class="icon-dark"><img src="assets/icons/lift/blancos/andarivel-doble.png"
+                alt="" width="28" height="28" /></span><span>doble</span></span>
+          <span class="icon-cell"><span class="icon-dark"><img src="assets/icons/lift/blancos/andarivel-triple.png"
+                alt="" width="28" height="28" /></span><span>triple</span></span>
+          <span class="icon-cell"><span class="icon-dark"><img src="assets/icons/lift/blancos/andarivel-cuadruple.png"
+                alt="" width="28" height="28" /></span><span>cuádruple</span></span>
+          <span class="icon-cell"><span class="icon-dark"><img src="assets/icons/lift/blancos/arrastre.png" alt=""
+                width="28" height="28" /></span><span>arrastre</span></span>
+          <span class="icon-cell"><span class="icon-dark"><img src="assets/icons/lift/blancos/magic-carpet.png" alt=""
+                width="28" height="28" /></span><span>magic</span></span>
+        </div>
+        <p class="spec"><strong>blancos</strong> · mismo set · swap por tema con <strong>data-dark-src</strong></p>
+        <h3>Dificultad · color propio</h3>
+        <div class="icon-row">
+          <span class="icon-cell"><img src="assets/icons/dificultad/principiante.png" alt="" width="20"
+              height="20" /><span>principiante</span></span>
+          <span class="icon-cell"><img src="assets/icons/dificultad/intermedio.png" alt="" width="20"
+              height="20" /><span>intermedio</span></span>
+          <span class="icon-cell"><img src="assets/icons/dificultad/avanzado.png" alt="" width="20"
+              height="20" /><span>avanzado</span></span>
+          <span class="icon-cell"><img src="assets/icons/dificultad/experto.png" alt="" width="20"
+              height="20" /><span>experto</span></span>
+        </div>
+        <p class="spec"><strong>dificultad</strong> · 20px · sirven en ambos temas, sin variante</p>
+        <h3>Bike park · dificultad + tipo</h3>
+        <div class="icon-row">
+          <span class="icon-cell"><img src="assets/icons/dif/principiante-fluido.png" alt="" width="20"
+              height="20" /><span>prin-fluido</span></span>
+          <span class="icon-cell"><img src="assets/icons/dif/intermedio-fluido.png" alt="" width="20"
+              height="20" /><span>inter-fluido</span></span>
+          <span class="icon-cell"><img src="assets/icons/dif/intermedio-tecnico.png" alt="" width="20"
+              height="20" /><span>inter-técnico</span></span>
+          <span class="icon-cell"><img src="assets/icons/dif/avanzado-fluido.png" alt="" width="20"
+              height="20" /><span>avan-fluido</span></span>
+          <span class="icon-cell"><img src="assets/icons/dif/avanzado-tecnico.png" alt="" width="20"
+              height="20" /><span>avan-técnico</span></span>
+          <span class="icon-cell"><img src="assets/icons/dif/experto-fluido.png" alt="" width="20"
+              height="20" /><span>exp-fluido</span></span>
+          <span class="icon-cell"><img src="assets/icons/dif/experto-tecnico.png" alt="" width="20"
+              height="20" /><span>exp-técnico</span></span>
+          <span class="icon-cell"><img src="assets/icons/dif/experto-tecnico-fluido.png" alt="" width="20"
+              height="20" /><span>exp-tec-fluido</span></span>
+        </div>
+        <p class="spec"><strong>combos</strong> · 8 piezas · "DIFICULTAD_TIPO", con clásico en su defecto</p>
+        <h3>Actividades · montaña por defecto</h3>
+        <div class="icon-row">
+          <span class="icon-cell"><img src="assets/icons/act/ski-snowboard.png" alt="" width="24"
+              height="24" /><span>ski</span></span>
+          <span class="icon-cell"><img src="assets/icons/act/randonee.png" alt="" width="24"
+              height="24" /><span>randonée</span></span>
+          <span class="icon-cell"><img src="assets/icons/act/patinaje.png" alt="" width="24"
+              height="24" /><span>patín</span></span>
+          <span class="icon-cell"><img src="assets/icons/act/tubing.png" alt="" width="24"
+              height="24" /><span>tubing</span></span>
+          <span class="icon-cell"><img src="assets/icons/act/tirolesa.png" alt="" width="24"
+              height="24" /><span>tirolesa</span></span>
+          <span class="icon-cell"><img src="assets/icons/act/motos-nieve.png" alt="" width="24"
+              height="24" /><span>motos</span></span>
+          <span class="icon-cell"><img src="assets/icons/act/zona-debutantes.png" alt="" width="24"
+              height="24" /><span>debutantes</span></span>
+          <span class="icon-cell"><img src="assets/icons/act/montana.png" alt="" width="24" height="24" /><span>montaña
+              ★</span></span>
+        </div>
+        <p class="spec"><strong>act</strong> · 24px · sin mapeo → montaña (igual que email y PDF)</p>
+        <h3>Clima · negros (estados del parte)</h3>
+        <div class="icon-row">
+          <span class="icon-cell"><img src="assets/icons/clima/despejado.png" alt="" width="24"
+              height="24" /><span>despejado</span></span>
+          <span class="icon-cell"><img src="assets/icons/clima/parcial-nublado.png" alt="" width="24"
+              height="24" /><span>parcial</span></span>
+          <span class="icon-cell"><img src="assets/icons/clima/nublado.png" alt="" width="24"
+              height="24" /><span>nublado</span></span>
+          <span class="icon-cell"><img src="assets/icons/clima/nevando.png" alt="" width="24"
+              height="24" /><span>nevando</span></span>
+          <span class="icon-cell"><img src="assets/icons/clima/lluvia.png" alt="" width="24"
+              height="24" /><span>lluvia</span></span>
+          <span class="icon-cell"><img src="assets/icons/clima/tormenta-electrica.png" alt="" width="24"
+              height="24" /><span>tormenta</span></span>
+          <span class="icon-cell"><img src="assets/icons/clima/cadenas.png" alt="" width="24"
+              height="24" /><span>cadenas</span></span>
+        </div>
+        <p class="spec"><strong>clima</strong> · negros 24px · los usa NivologiaForm (la sección Clima usa sol/nieve por
+          temporada)</p>
+        <h3>Tamaños por contexto</h3>
+        <div class="icon-row">
+          <span class="icon-cell"><img src="assets/icons/lift/andarivel-doble.png" alt="" width="16"
+              height="16" /><span>16</span></span>
+          <span class="icon-cell"><img src="assets/icons/lift/andarivel-doble.png" alt="" width="20"
+              height="20" /><span>20</span></span>
+          <span class="icon-cell"><img src="assets/icons/lift/andarivel-doble.png" alt="" width="24"
+              height="24" /><span>24</span></span>
+          <span class="icon-cell"><img src="assets/icons/lift/andarivel-doble.png" alt="" width="28"
+              height="28" /><span>28</span></span>
+        </div>
+        <p class="spec"><strong>sizes</strong> · 16 mínima funcional · 20 dif · 22 header Forms · 24 lift/act · 28
+          display</p>
+      </div>
+    </section>
+
+    <!-- BOTONES -->
+    <section id="botones" class="section">
+      <h2>Botones que se sienten físicos</h2>
+      <p class="section-sub">Un radio (pill en acciones), un acento por contexto y press real en <code>:active</code>.
+      </p>
+      <div class="btn-grid">
+        <div class="btn-cell"><button class="btn btn-primary" type="button">Enviar reporte</button><span>Primario</span>
+        </div>
+        <div class="btn-cell"><button class="btn btn-accent" type="button">Iniciar temporada</button><span>Acento
+            cobre</span></div>
+        <div class="btn-cell"><button class="btn btn-secondary" type="button">Regenerar</button><span>Secundario</span>
+        </div>
+        <div class="btn-cell"><button class="btn btn-ghost" type="button">Cancelar</button><span>Fantasma</span></div>
+        <div class="btn-cell"><button class="btn btn-danger" type="button">Reiniciar día</button><span>Peligro</span>
+        </div>
+        <div class="btn-cell"><button class="btn btn-primary" type="button"
+            disabled>Enviando…</button><span>Deshabilitado</span></div>
+        <div class="btn-cell">
+          <button class="btn btn-primary" type="button">
+            Ver informe
+            <span class="btn-ring"><svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 12 12 2M4 2h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></span>
+          </button><span>Isla con flecha</span>
+        </div>
+        <div class="btn-cell"><button class="btn btn-secondary btn-sm"
+            type="button">Detalles</button><span>Pequeño</span></div>
+      </div>
+      <p class="spec"><strong>btn</strong> · radius pill · padding 12px 22px · Montserrat 700 · press :active scale(.98)
+      </p>
+    </section>
+
+    <!-- ESTADOS -->
+    <section id="estados" class="section">
+      <h2>Estados operativos</h2>
+      <p class="section-sub">El mismo vocabulario en pills, tarjetas de captura y tablas. Los colores reemplazan el
+        texto como indicador principal.</p>
+      <div class="pill-row">
+        <span class="pill pill-ok">Abierto</span>
+        <span class="pill pill-ok">Disponible</span>
+        <span class="pill pill-warn">En espera</span>
+        <span class="pill pill-bad">Cerrado</span>
+        <span class="pill pill-bad">No disponible</span>
+        <span class="pill pill-neutral">Programado</span>
+      </div>
+      <p class="spec"><strong>pill</strong> · 11px/700 · radius pill · padding 4px 12px · nowrap — vocabulario fijo</p>
+      <p class="counter-row"><span class="counter"><span class="dot dot-ok pulse"></span>8/10
+          <em>abiertos</em></span></p>
+      <div class="kitgrid">
+        <article class="kitcard">
+          <div class="dbar dbar-ok"><span>Abierto</span></div>
+          <div class="kitcard-head">
+            <div class="kitcard-txt">
+              <p class="kitcard-title">Tata</p>
+              <p class="kitcard-sub">Silla cuádruple · 08:30–17:00</p>
+            </div>
+            <img src="assets/icons/lift/andarivel-doble.png"
+              data-dark-src="assets/icons/lift/blancos/andarivel-doble.png" alt="" width="24" height="24" />
+          </div>
+          <div class="kitcard-body">
+            <div class="ck">
+              <button class="is-on is-ok" type="button"><span class="ckstate"></span><span>Abierto</span></button>
+              <button type="button" class="is-warn"><span class="ckstate"></span><span>En espera</span></button>
+              <button type="button" class="is-bad"><span class="ckstate"></span><span>Cerrado</span></button>
+            </div>
+          </div>
+        </article>
+        <article class="kitcard">
+          <div class="dbar dbar-warn"><span>En espera</span></div>
+          <div class="kitcard-head">
+            <div class="kitcard-txt">
+              <p class="kitcard-title">Curvitas</p>
+              <p class="kitcard-sub">Intermedio · Técnico · Bike park</p>
+            </div>
+            <img src="assets/icons/dificultad/intermedio.png" alt="" width="24" height="24" />
+          </div>
+          <div class="kitcard-body">
+            <div class="ck">
+              <button type="button" class="is-ok"><span class="ckstate"></span><span>Abierto</span></button>
+              <button class="is-on is-warn" type="button"><span class="ckstate"></span><span>En espera</span></button>
+              <button type="button" class="is-bad"><span class="ckstate"></span><span>Cerrado</span></button>
+            </div>
+          </div>
+        </article>
+        <article class="kitcard">
+          <div class="dbar dbar-bad"><span>Cerrado</span></div>
+          <div class="kitcard-head">
+            <div class="kitcard-txt">
+              <p class="kitcard-title">Cascada I</p>
+              <p class="kitcard-sub">Arrastre · Viento fuerte</p>
+            </div>
+            <img src="assets/icons/lift/andarivel-doble.png"
+              data-dark-src="assets/icons/lift/blancos/andarivel-doble.png" alt="" width="24" height="24" />
+          </div>
+          <div class="kitcard-body">
+            <div class="ck">
+              <button type="button" class="is-ok"><span class="ckstate"></span><span>Abierto</span></button>
+              <button type="button" class="is-warn"><span class="ckstate"></span><span>En espera</span></button>
+              <button class="is-on is-bad" type="button"><span class="ckstate"></span><span>Cerrado</span></button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="spec"><strong>dbar + ck</strong> · barra 32px con el estado · chips 3 col · min-height 46px · orden
+        Abierto / En espera / Cerrado</p>
+      <h3>Variante display · kiosco y pantallas</h3>
+      <p class="section-sub">La barra ancha lleva el estado escrito: la tarjeta no repite pills ni chips. Solo lectura,
+        sin interacción. Hover muestra la foto al 30% con gradiente que protege el texto — entra rápido, sale lento.
+        El glow pulsante vive solo en abierto.</p>
+      <div class="dgrid">
+        <article class="dcard">
+          <div class="dbar dbar-ok"><span>Abierto</span></div>
+          <div class="dcard-body">
+            <div class="kitcard-txt">
+              <p class="kitcard-title">Tata</p>
+              <p class="kitcard-sub">Silla cuádruple · 08:30–17:00</p>
+            </div>
+            <img src="assets/icons/lift/andarivel-doble.png"
+              data-dark-src="assets/icons/lift/blancos/andarivel-doble.png" alt="" width="24" height="24" />
+          </div>
+          <span class="dcard-img" aria-hidden="true"><img src="assets/cover.jpg" alt="" loading="lazy" /></span>
+          <span class="dcard-grad" aria-hidden="true"></span>
+        </article>
+        <article class="dcard">
+          <div class="dbar dbar-warn"><span>En espera</span></div>
+          <div class="dcard-body">
+            <div class="kitcard-txt">
+              <p class="kitcard-title">Curvitas</p>
+              <p class="kitcard-sub">Intermedio · Técnico</p>
+            </div>
+            <img src="assets/icons/dificultad/intermedio.png" alt="" width="24" height="24" />
+          </div>
+          <span class="dcard-img" aria-hidden="true"><img src="assets/cover.jpg" alt="" loading="lazy"
+              style="object-position: 30% 60%" /></span>
+          <span class="dcard-grad" aria-hidden="true"></span>
+        </article>
+        <article class="dcard">
+          <div class="dbar dbar-bad"><span>Cerrado</span></div>
+          <div class="dcard-body">
+            <div class="kitcard-txt">
+              <p class="kitcard-title">Cascada I</p>
+              <p class="kitcard-sub">Arrastre</p>
+            </div>
+            <img src="assets/icons/lift/andarivel-doble.png"
+              data-dark-src="assets/icons/lift/blancos/andarivel-doble.png" alt="" width="24" height="24" />
+          </div>
+          <span class="dcard-img" aria-hidden="true"><img src="assets/cover.jpg" alt="" loading="lazy"
+              style="object-position: 70% 30%" /></span>
+          <span class="dcard-grad" aria-hidden="true"></span>
+        </article>
+      </div>
+      <p class="spec"><strong>dcard</strong> · barra 32px · texto vertical 8px · foto 30% al hover (in 600ms /
+        out 1800ms) · glow pulsante solo en abierto</p>
+    </section>
+
+    <!-- CARDS bento asimétrico -->
+    <section id="cards" class="section">
+      <h2>Cards con jerarquía real</h2>
+      <p class="section-sub">La elevación comunica jerarquía: si todo flota, nada flota.</p>
+      <div class="bento">
+        <article class="bento-hero shell">
+          <div class="shell-core">
+            <img src="assets/cover-verano.jpg" alt="Bike park al atardecer" width="1600" height="907" loading="lazy" />
+            <div class="bento-hero-body">
+              <p class="eyebrow eyebrow-light">Bike park · Verano</p>
+              <h3>12 pistas, 2 andariveles</h3>
+              <p>Refugio y Tata operando de 09:00 a 17:00 con 3 circuitos fluidos nuevos.</p>
+            </div>
+          </div>
+        </article>
+        <article class="stat shell">
+          <div class="shell-core">
+            <p class="stat-num">8/10</p>
+            <p class="stat-lbl">Andariveles abiertos</p>
+          </div>
+        </article>
+        <article class="stat shell">
+          <div class="shell-core">
+            <p class="stat-num">−4°C</p>
+            <p class="stat-lbl">Cumbre 2400 m</p>
+          </div>
+        </article>
+        <article class="quote shell">
+          <div class="shell-core">
+            <p>“El parte sale solo cuando los datos están completos.”</p><cite>— Operaciones de Montaña</cite>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FORMS -->
+    <section id="forms" class="section">
+      <h2>Una vuelta a la captura de datos</h2>
+      <p class="section-sub">La captura operatoria es una tarjeta por ítem: barra de estado al costado, chips de estado
+        táctiles y campos con etiqueta arriba. Estas tres tarjetas son la anatomía real de InfraForm, con tabs por
+        sección.</p>
+      <div class="tabs" data-radio>
+        <button class="iconbtn" type="button" data-prev aria-label="Sección anterior"><span
+            class="material-symbols-outlined">chevron_left</span></button>
+        <button class="is-on" type="button"><span
+            class="material-symbols-outlined">airline_seat_recline_extra</span>Andariveles</button>
+        <button type="button"><span class="material-symbols-outlined">downhill_skiing</span>Pistas</button>
+        <button type="button"><span class="material-symbols-outlined">hiking</span>Actividades</button>
+        <button type="button"><span class="material-symbols-outlined">ac_unit</span>Clima</button>
+        <button class="iconbtn" type="button" data-next aria-label="Sección siguiente"><span
+            class="material-symbols-outlined">chevron_right</span></button>
+      </div>
+      <div class="kitgrid">
+        <article class="kitcard">
+          <div class="dbar dbar-warn"><span>En espera</span></div>
+          <div class="kitcard-head">
+            <div class="kitcard-txt">
+              <p class="kitcard-title">Curvitas</p>
+              <p class="kitcard-sub">Intermedio · Técnico · Zona media</p>
+            </div>
+            <img src="assets/icons/dificultad/intermedio.png" alt="" width="24" height="24" />
+          </div>
+          <div class="kitcard-body">
+            <div class="ck">
+              <button type="button" class="is-ok"><span class="ckstate"></span><span>Abierto</span></button>
+              <button class="is-on is-warn" type="button"><span class="ckstate"></span><span>En espera</span></button>
+              <button type="button" class="is-bad"><span class="ckstate"></span><span>Cerrado</span></button>
+            </div>
+            <label class="field">
+              <span>Estado de uso</span>
+              <input type="text" value="Pista aplanada" placeholder="Describe el estado a mano…" />
+            </label>
+            <label class="field">
+              <span>Observación <em>(opcional)</em></span>
+              <input type="text" placeholder="Ej: nieve polvo, viento moderado" />
+            </label>
+          </div>
+        </article>
+        <article class="kitcard">
+          <div class="dbar dbar-ok"><span>Abierto</span></div>
+          <div class="kitcard-head">
+            <div class="kitcard-txt">
+              <p class="kitcard-title">Tata</p>
+              <p class="kitcard-sub">Silla cuádruple</p>
+            </div>
+            <img src="assets/icons/lift/andarivel-doble.png"
+              data-dark-src="assets/icons/lift/blancos/andarivel-doble.png" alt="" width="24" height="24" />
+          </div>
+          <div class="kitcard-body">
+            <div class="ck">
+              <button class="is-on is-ok" type="button"><span class="ckstate"></span><span>Abierto</span></button>
+              <button type="button" class="is-warn"><span class="ckstate"></span><span>En espera</span></button>
+              <button type="button" class="is-bad"><span class="ckstate"></span><span>Cerrado</span></button>
+            </div>
+            <div class="campo-row">
+              <label class="field">
+                <span>Hora apertura</span>
+                <input type="time" value="08:30" />
+              </label>
+              <label class="field">
+                <span>Hora cierre</span>
+                <input type="time" value="17:00" />
+              </label>
+            </div>
+            <label class="check"><input type="checkbox" checked /> <span>Mostrar hora en el informe</span></label>
+          </div>
+        </article>
+        <article class="kitcard">
+          <div class="kitcard-body">
+            <p class="kitcard-title">Observaciones</p>
+            <label class="field">
+              <span>Pistas <em>(opcional)</em></span>
+              <input type="text" placeholder="Contexto del día en pistas…" />
+            </label>
+            <div class="chiprow">
+              <button type="button" class="chip chip-n is-on"><span>✎</span>Nota</button>
+              <button type="button" class="chip chip-a"><span>⚠</span>Aviso</button>
+              <button type="button" class="chip chip-i"><span>▲</span>Importante</button>
+              <button type="button" class="chip chip-u"><span>●</span>Urgente</button>
+              <button type="button" class="chip chip-r"><span>ℹ</span>Recordatorio</button>
+            </div>
+            <div class="acciones">
+              <button class="btn btn-ghost btn-sm" type="button">Cancelar</button>
+              <button class="btn btn-primary btn-sm" type="button">Guardar</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TABLA -->
+    <section id="tabla" class="section">
+      <h2>Datos densos, aireados</h2>
+      <div class="tablewrap shell">
+        <div class="shell-core">
+          <table class="ops">
+            <thead>
+              <tr>
+                <th>Andarivel</th>
+                <th>Tipo</th>
+                <th>Horario</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tata</td>
+                <td>Silla cuádruple</td>
+                <td class="num">08:30–17:00</td>
+                <td><span class="pill pill-ok">Abierto</span></td>
+              </tr>
+              <tr>
+                <td>Refugio</td>
+                <td>Silla triple</td>
+                <td class="num">09:00–17:00</td>
+                <td><span class="pill pill-ok">Abierto</span></td>
+              </tr>
+              <tr>
+                <td>Cascada I</td>
+                <td>Arrastre</td>
+                <td class="num">—</td>
+                <td><span class="pill pill-bad">Cerrado</span></td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+                <td>Silla doble</td>
+                <td class="num">—</td>
+                <td><span class="pill pill-warn">En espera</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="table-note">Mostrando 4 de 4 · Temporada Invierno 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALERTAS -->
+    <section id="alertas" class="section">
+      <div class="alert-stack">
+        <div class="alert alert-aviso"><strong>⚠ Aviso:</strong> Viento fuerte en zona alta después de las 15 h.</div>
+        <div class="alert alert-importante"><strong>⦻ Importante:</strong> Camino con restricción para buses desde las
+          18 h.</div>
+        <div class="alert alert-urgente"><strong>⛔ Urgente:</strong> Tormenta eléctrica: evacuar exposiciones altas.
+        </div>
+      </div>
+    </section>
+
+    <!-- SISTEMA: overlays, estados y controles -->
+    <section id="sistema" class="section">
+      <h2>Sistema: overlays, estados y controles</h2>
+      <p class="section-sub">Lo que toda app necesita y nadie diseña dos veces: confirmaciones destructivas, controles
+        segmentados, rangos de fecha y los tres estados de datos (vacío, cargando, error).</p>
+      <div class="sysgrid">
+        <div class="token-pane">
+          <h3>Confirmación destructiva</h3>
+          <p class="sys-desc">El modal vive en un overlay fijo y se cierra con Escape o clic afuera. La acción
+            destructiva exige checkbox: sin tildar, no hay botón.</p>
+          <p class="frame-cta-row">
+            <button id="abrirReinicio" class="btn btn-danger btn-sm" type="button">Reiniciar día…</button>
+            <button id="toastOk" class="btn btn-ghost btn-sm" type="button">Toast OK</button>
+            <button id="toastErr" class="btn btn-ghost btn-sm" type="button">Toast error</button>
+          </p>
+        </div>
+        <div class="token-pane">
+          <h3>Segmentado</h3>
+          <p class="sys-desc">Dos vistas, un control. Mismo patrón del Dashboard (Resumen / Tabla).</p>
+          <div class="seg" data-radio>
+            <button class="is-on" type="button">Resumen</button>
+            <button type="button">Tabla</button>
+          </div>
+        </div>
+        <div class="token-pane">
+          <h3>Rango de fechas</h3>
+          <p class="sys-desc">Presets pill + fechas exactas + nota de temporada activa.</p>
+          <div class="rango">
+            <div class="presets" data-radio>
+              <button type="button" class="chip chip-preset">7 días</button>
+              <button type="button" class="chip chip-preset is-on">30 días</button>
+              <button type="button" class="chip chip-preset">Temporada</button>
+            </div>
+            <div class="rango-fila">
+              <label class="field"><span>Desde</span><input type="date" value="2026-08-01" /></label>
+              <label class="field"><span>Hasta</span><input type="date" value="2026-08-30" /></label>
+              <button id="consultarRango" class="btn btn-primary" type="button">Consultar</button>
+            </div>
+            <p class="rango-nota">Temporada activa: Invierno 2026 · 01 jun → 30 sep.</p>
+          </div>
+        </div>
+        <div class="token-pane">
+          <h3>Vacío · cargando · error</h3>
+          <p class="sys-desc">Toda lista declara sus tres estados.</p>
+          <div class="empty">
+            <span class="material-symbols-outlined">landscape</span>
+            <p>Sin actividades vigentes hoy</p>
+            <span>El administrador las activa desde el catálogo según la temporada.</span>
+            <button class="btn btn-secondary btn-sm" type="button">Ir al catálogo</button>
+          </div>
+          <div class="skel-row" aria-hidden="true">
+            <span class="skel" style="height: 14px; width: 42%"></span>
+            <span class="skel" style="height: 14px; width: 78%"></span>
+            <span class="skel" style="height: 14px; width: 64%"></span>
+          </div>
+          <div class="errbar">
+            <span class="material-symbols-outlined">error</span>
+            No se pudo cargar el reporte.
+            <button class="btn btn-ghost btn-sm" type="button">Reintentar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAVEGACIÓN: sidebar + top-bar + bottom-bar -->
+    <section id="navegacion" class="section">
+      <h2>Navegación de app unificada</h2>
+      <p class="section-sub">Sidebar en desktop, bottom-bar de 5 en móvil y top-bar con tabs: mismo activo navy, mismos
+        iconos, mismas alturas táctiles.</p>
+      <div class="navdemo">
+        <nav class="sidenav" aria-label="Demostración">
+          <div class="sidenav-brand"><img src="assets/logo.png" data-dark-src="assets/logo_white.png" alt=""
+              height="26" /><span>Sistema <strong>Nevados</strong></span></div>
+          <p class="sidenav-grupo">Operación</p>
+          <div data-radio>
+            <a class="sidenav-item is-on" href="#navegacion"><span class="material-symbols-outlined">dashboard</span>
+              <div><strong>Panel</strong><small>Resumen del día</small></div>
+            </a>
+            <a class="sidenav-item" href="#navegacion"><span
+                class="material-symbols-outlined">airline_seat_recline_extra</span>
+              <div><strong>Andariveles</strong><small>8/10 abiertos</small></div>
+            </a>
+            <a class="sidenav-item" href="#navegacion"><span class="material-symbols-outlined">downhill_skiing</span>
+              <div><strong>Pistas</strong><small>12 abiertas</small></div>
+            </a>
+          </div>
+          <p class="sidenav-grupo">Sistema</p>
+          <div data-radio>
+            <a class="sidenav-item" href="#navegacion"><span class="material-symbols-outlined">ac_unit</span>
+              <div><strong>Clima</strong><small>3 cotas</small></div>
+            </a>
+          </div>
+          <div class="sidenav-foot">
+            <span class="avatar">OM</span>
+            <div><strong>Operador nevados</strong><small>operador pruebas</small></div>
+            <button class="iconbtn" type="button" aria-label="Salir"><span
+                class="material-symbols-outlined">logout</span></button>
+          </div>
+        </nav>
+        <div class="navdemo-stack">
+          <div class="token-pane">
+            <h3>Top-bar · AppBarTop del Forms</h3>
+            <p class="sys-desc">Logo + reloj en vivo + usuario + tema + salida. Los iconos del navbar real.</p>
+            <div class="topbar">
+              <div class="topbar-brand">
+                <img src="assets/logo.png" data-dark-src="assets/logo_white.png" alt="Nevados" height="28" />
+                <div><strong>Reportes de Montaña</strong><small>Ingreso de datos</small></div>
+              </div>
+              <div class="topbar-clock">
+                <span class="topbar-tile"><span class="material-symbols-outlined">calendar_today</span></span>
+                <div><span>sáb 15 ago</span><strong>08:30</strong></div>
+              </div>
+              <div class="topbar-ctl">
+                <div class="topbar-user">
+                  <span class="avatar-sm"><span class="material-symbols-outlined">shield</span></span>
+                  <div><span>operador</span><strong>Administrador</strong></div>
+                </div>
+                <button class="topbar-btn" type="button" aria-label="Cambiar tema"><span
+                    class="material-symbols-outlined">dark_mode</span></button>
+                <button class="topbar-btn" type="button" aria-label="Cerrar sesión"><span
+                    class="material-symbols-outlined">logout</span></button>
+              </div>
+            </div>
+            <p class="spec"><strong>appbar</strong> · tile 36/glifo 24 + reloj tabular · avatar 32/glifo 20
+              shield-person · botones 32/glifo 20 bordeados</p>
+          </div>
+          <div class="token-pane">
+            <h3>Bottom-bar móvil</h3>
+            <p class="sys-desc">5 destinos, activo en pastilla navy. Etiquetas de 10px.</p>
+            <nav class="bottombar" data-radio aria-label="Demostración">
+              <a class="is-on" href="#navegacion"><span class="material-symbols-outlined">home</span>Inicio</a>
+              <a href="#navegacion"><span class="material-symbols-outlined">airline_seat_recline_extra</span>Anda.</a>
+              <a href="#navegacion"><span class="material-symbols-outlined">downhill_skiing</span>Pistas</a>
+              <a href="#navegacion"><span class="material-symbols-outlined">hiking</span>Act.</a>
+              <a href="#navegacion"><span class="material-symbols-outlined">ac_unit</span>Clima</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VERANO: mismo sistema, otros datos -->
+    <section id="verano" class="section">
+      <h2>Verano sin construir nada</h2>
+      <p class="section-sub">Mismo template, mismos componentes: cambian portada, nombre, iconos y qué filas se
+        muestran. Prueba el toggle.</p>
+      <div class="seg" data-temporada>
+        <button class="is-on" type="button" data-t="inv">Invierno · Infonieve</button>
+        <button type="button" data-t="ver">Verano · Infobike</button>
+      </div>
+      <div class="sysgrid" data-temporada-scope>
+        <div class="token-pane">
+          <h3>Portada y nombre</h3>
+          <p class="sys-desc">Cover y slice por temporada; el template es el mismo.</p>
+          <img class="tempo-cover" data-swap data-inv="assets/cover.jpg" data-ver="assets/cover-verano.jpg"
+            src="assets/cover.jpg" alt="Portada del reporte" />
+          <p class="tempo-name"><strong data-swap data-inv="Infonieve" data-ver="Infobike">Infonieve</strong> <span
+              data-swap data-inv="Sábado 15 de agosto de 2026." data-ver="Sábado 14 de febrero de 2026.">Sábado 15 de
+              agosto de 2026.</span></p>
+          <p class="spec"><strong>cover/slice</strong> · cover ↔ cover-verano · subject neutro "Reporte de Montaña"</p>
+        </div>
+        <div class="token-pane">
+          <h3>Tarjeta de pista</h3>
+          <p class="sys-desc">Combo dificultad+tipo y estado de uso a mano en bike park.</p>
+          <p class="tempo-tabs">Pistas <span class="material-symbols-outlined" data-swap data-inv="downhill_skiing"
+              data-ver="directions_bike">downhill_skiing</span> · Clima <span class="material-symbols-outlined"
+              data-swap data-inv="ac_unit" data-ver="wb_sunny">ac_unit</span></p>
+          <article class="kitcard">
+            <div class="dbar dbar-ok"><span>Abierto</span></div>
+            <div class="kitcard-head">
+              <div class="kitcard-txt">
+                <p class="kitcard-title" data-swap data-inv="Curvitas" data-ver="Ebike">Curvitas</p>
+                <p class="kitcard-sub" data-swap data-inv="Intermedio · Técnico · Zona media"
+                  data-ver="Circuito · Bike park">
+                  Intermedio · Técnico · Zona media</p>
+              </div>
+              <img data-swap data-inv="assets/icons/dificultad/intermedio.png"
+                data-ver="assets/icons/dif/intermedio-tecnico.png" src="assets/icons/dificultad/intermedio.png" alt=""
+                width="24" height="24" />
+            </div>
+            <div class="kitcard-body">
+              <label class="field">
+                <span>Estado de uso</span>
+                <input type="text" data-swap data-inv="Ej: nieve polvo, viento moderado"
+                  data-ver="Describe el estado a mano…" value="Pista aplanada"
+                  placeholder="Ej: nieve polvo, viento moderado" />
+              </label>
+            </div>
+          </article>
+          <p class="spec"><strong>bike</strong> · combo DIFICULTAD_TIPO · uso manual (sin presets de nieve)</p>
+        </div>
+        <div class="token-pane span2">
+          <h3>Clima y andariveles</h3>
+          <p class="sys-desc">En verano la nieve es irrelevante: solo viento. Leyenda corta.</p>
+          <div class="clima-rows">
+            <div class="clima-row" data-only-inv><span>Caída 24h</span><strong>12 cm</strong></div>
+            <div class="clima-row" data-only-inv><span>Acumulada</span><strong>86 cm</strong></div>
+            <div class="clima-row"><span>Viento</span><strong>24 km/h</strong></div>
+          </div>
+          <p class="tempo-legend"><strong>Lifts:</strong> <span data-swap
+              data-inv="Silla doble · triple · cuádruple · arrastre" data-ver="Silla triple · cuádruple">Silla doble ·
+              triple · cuádruple · arrastre</span></p>
+          <p class="spec"><strong>verano</strong> · PDF de 2 páginas (pistas bajo andariveles) · catálogo ?vigentes=1
+          </p>
+        </div>
+      </div>
+      <ul class="rules">
+        <li><strong>Email</strong> — misma plantilla: cover/slice por temporada, clima solo viento, sin filas de nieve.
+        </li>
+        <li><strong>Forms</strong> — hero y tabs por temporada, combos dificultad+tipo, estado de uso a mano.</li>
+        <li><strong>Sin temporada</strong> — invierno por defecto: en verano no se construye nada nuevo.</li>
+      </ul>
+    </section>
+
+    <!-- RESPONSIVE: especificación visual, no promesa -->
+    <section id="responsive" class="section">
+      <h2>Responsive como especificación</h2>
+      <p class="section-sub">Cada componente declara su comportamiento bajo 768px. Misma pieza, dos anchos, reglas
+        escritas.</p>
+      <div class="frames">
+        <figure class="frame">
+          <figcaption><strong>1280 · Desktop</strong><span>Barra · chips de 3 columnas · autoguardado con
+              texto</span></figcaption>
+          <div class="frame-screen">
+            <article class="kitcard">
+              <div class="dbar dbar-ok"><span>Abierto</span></div>
+              <div class="kitcard-head">
+                <div class="kitcard-txt">
+                  <p class="kitcard-title">Tata</p>
+                  <p class="kitcard-sub">Silla cuádruple · 08:30–17:00</p>
+                </div>
+                <img src="assets/icons/lift/andarivel-doble.png"
+                  data-dark-src="assets/icons/lift/blancos/andarivel-doble.png" alt="" width="24" height="24" />
+              </div>
+              <div class="kitcard-body">
+                <div class="ck">
+                  <button class="is-on is-ok" type="button"><span class="ckstate"></span><span>Abierto</span></button>
+                  <button type="button" class="is-warn"><span class="ckstate"></span><span>En espera</span></button>
+                  <button type="button" class="is-bad"><span class="ckstate"></span><span>Cerrado</span></button>
+                </div>
+                <p class="save-row">
+                  <span class="material-symbols-outlined spin">progress_activity</span>Guardando…
+                </p>
+              </div>
+            </article>
+          </div>
+        </figure>
+        <figure class="frame frame-phone">
+          <figcaption><strong>390 · Móvil</strong><span>Apilado · chips en 2 columnas · campo a lo ancho ·
+              autoguardado compacto</span></figcaption>
+          <div class="frame-screen">
+            <article class="kitcard">
+              <div class="dbar dbar-ok"><span>Abierto</span></div>
+              <div class="kitcard-head">
+                <div class="kitcard-txt">
+                  <p class="kitcard-title">Tata</p>
+                  <p class="kitcard-sub">08:30–17:00</p>
+                </div>
+                <img src="assets/icons/lift/andarivel-doble.png"
+                  data-dark-src="assets/icons/lift/blancos/andarivel-doble.png" alt="" width="24" height="24" />
+              </div>
+              <div class="kitcard-body">
+                <div class="ck">
+                  <button class="is-on is-ok" type="button"><span class="ckstate"></span><span>Abierto</span></button>
+                  <button type="button" class="is-warn"><span class="ckstate"></span><span>En espera</span></button>
+                  <button type="button" class="is-bad"><span class="ckstate"></span><span>Cerrado</span></button>
+                </div>
+                <label class="field">
+                  <span>Observación <em>(opcional)</em></span>
+                  <input type="text" placeholder="Contexto del día…" />
+                </label>
+                <p class="save-row">
+                  <span class="material-symbols-outlined spin" role="img"
+                    aria-label="Guardando">progress_activity</span>
+                </p>
+              </div>
+            </article>
+          </div>
+        </figure>
+      </div>
+      <ul class="rules">
+        <li><strong>768px</strong> — único breakpoint: lo multi-columna colapsa a una columna.</li>
+        <li><strong>44px</strong> — alto mínimo táctil en botones, checks e inputs.</li>
+        <li><strong>100dvh</strong> — nunca <code>h-screen</code> (salto en iOS).</li>
+        <li><strong>16px</strong> — tamaño mínimo de icono y de texto funcional.</li>
+        <li><strong>Hero</strong> — titular a 2 líneas máx, CTA visible sin scroll.</li>
+        <li><strong>Autoguardado</strong> — sin submit en captura: texto 1.5s, hora 1.2s, con spinner.</li>
+        <li><strong>Nav</strong> — sidebar en desktop, bottom-bar de 5 en móvil.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="assets/logo_white.png" alt="Nevados de Chillán" height="38" />
+    <p>Sistema Nevados · Playground de diseño · Los tokens mandan, los componentes obedecen.</p>
+    <button id="toTop" class="btn btn-ghost btn-sm" type="button">Volver arriba</button>
+  </footer>
+
+  <div class="overlay" id="overlayReinicio" hidden>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dlgTitulo" tabindex="-1">
+      <p class="dialog-title" id="dlgTitulo">Reiniciar día</p>
+      <p class="dialog-desc">Se borran los estados y observaciones de hoy y se recrean desde el catálogo vigente. Los
+        movimientos quedan en el historial.</p>
+      <label class="check"><input id="chkReinicio" type="checkbox" /> <span>Entiendo que esta acción no se puede
+          deshacer</span></label>
+      <div class="acciones">
+        <button class="btn btn-ghost btn-sm" type="button" data-cerrar>Cancelar</button>
+        <button id="btnReinicio" class="btn btn-danger btn-sm" type="button" disabled>Reiniciar día</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=2026-09-26"></script>
+</body>
+
+</html>
