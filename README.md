@@ -20,14 +20,12 @@ Abrir `index.html` en el navegador. Sin build, sin dependencias
 
 ## Reglas del juego
 
-1. **Los tokens mandan.** Nada de hex sueltos fuera de `tokens.css`.
+1. **Los tokens.** Nada de hex sueltos fuera de `tokens.css`.
 2. **Un acento**: cobre. Los semáforos (verde/ámbar/rojo/cielo) son del
    sistema operativo y no se reinventan por pantalla.
 3. **Montserrat siempre** (marca); mono solo para código/tokens.
 4. Probar **ambos temas** antes de llevar algo a un proyecto.
-5. Lo que se aprueba acá se copia tal cual; lo que no, no sale de acá.
-6. Los CSS/JS llevan `?v=fecha`: si el navegador muestra algo viejo,
-   recarga fuerte (Ctrl+Shift+R).
+5. Lo que se aprueba acá se copia tal cual.
 
 ## Llevar a un proyecto
 
