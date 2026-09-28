@@ -293,6 +293,8 @@
         </div>
         <div class="btn-cell"><button class="btn btn-secondary btn-sm"
             type="button">Detalles</button><span>Pequeño</span></div>
+        <div class="btn-cell btn-cell-dark"><button class="btn btn-light" type="button">Ir al reporte</button><span>Claro / sobre foto</span></div>
+        <div class="btn-cell btn-cell-dark"><button class="btn btn-light" type="button">Ver informe<span class="btn-ring"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12 12 2M4 2h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><span>Claro con isla</span></div>
       </div>
       <p class="spec"><strong>btn</strong> · radius pill · padding 12px 22px · Montserrat 700 · press :active scale(.98)
       </p>
@@ -829,8 +831,7 @@
         escritas.</p>
       <div class="frames">
         <figure class="frame">
-          <figcaption><strong>1280 · Desktop</strong><span>Barra · chips de 3 columnas · autoguardado con
-              texto</span></figcaption>
+          <figcaption><strong>1280 · Desktop</strong><span>Barra · chips de 3 columnas · ciclo de guardado en loop</span></figcaption>
           <div class="frame-screen">
             <article class="kitcard">
               <div class="dbar dbar-ok"><span>Abierto</span></div>
@@ -848,9 +849,10 @@
                   <button type="button" class="is-warn"><span class="ckstate"></span><span>En espera</span></button>
                   <button type="button" class="is-bad"><span class="ckstate"></span><span>Cerrado</span></button>
                 </div>
-                <p class="save-row">
-                  <span class="material-symbols-outlined spin">progress_activity</span>Guardando…
-                </p>
+              <p class="save-row save-cycle">
+                <span class="save-phase save-doing"><span class="material-symbols-outlined spin">progress_activity</span><span>Guardando…</span></span>
+                <span class="save-phase save-done"><span class="material-symbols-outlined">check_circle</span><span>Guardado</span></span>
+              </p>
               </div>
             </article>
           </div>
@@ -894,7 +896,7 @@
         <li><strong>100dvh</strong> — nunca <code>h-screen</code> (salto en iOS).</li>
         <li><strong>16px</strong> — tamaño mínimo de icono y de texto funcional.</li>
         <li><strong>Hero</strong> — titular a 2 líneas máx, CTA visible sin scroll.</li>
-        <li><strong>Autoguardado</strong> — sin submit en captura: texto 1.5s, hora 1.2s, con spinner.</li>
+        <li><strong>Autoguardado</strong> — sin submit en captura: texto 1.5s, hora 1.2s, estado 1.2s con ventana (si vuelve al original, no se envía), con spinner. Demo en loop: círculo+texto → Guardado ✓ → salida.</li>
         <li><strong>Nav</strong> — sidebar en desktop, bottom-bar de 5 en móvil.</li>
       </ul>
     </section>

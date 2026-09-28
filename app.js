@@ -161,7 +161,7 @@
     });
   });
 
-  /* ---- Chips de estado demo (radio por tarjeta + dbar sincronizada) ---- */
+  /* ---- Chips de estado demo (radio + dbar con ventana de seguridad) ---- */
   document.querySelectorAll(".ck").forEach(function (suite) {
     suite.addEventListener("click", function (e) {
       var btn = e.target.closest("button");
@@ -170,16 +170,20 @@
         b.classList.remove("is-on");
       });
       btn.classList.add("is-on");
-      // Como el PATCH real: la barra de la tarjeta sigue al estado elegido.
-      var card = suite.closest(".kitcard");
-      var bar = card ? card.querySelector(".dbar") : null;
-      if (bar) {
-        bar.classList.remove("dbar-ok", "dbar-warn", "dbar-bad", "dbar-info");
-        var fam = (btn.className.match(/is-(ok|warn|bad|info)/) || [])[1];
-        if (fam) bar.classList.add("dbar-" + fam);
-        var word = bar.querySelector("span");
-        if (word) word.textContent = btn.textContent.trim();
-      }
+      // Como el envío real (1200ms): la barra espera la ventana; si
+      // vuelve a cambiar antes, se reinicia y solo viaja lo último.
+      clearTimeout(suite._t);
+      suite._t = setTimeout(function () {
+        var card = suite.closest(".kitcard");
+        var bar = card ? card.querySelector(".dbar") : null;
+        if (bar) {
+          bar.classList.remove("dbar-ok", "dbar-warn", "dbar-bad", "dbar-info");
+          var fam = (btn.className.match(/is-(ok|warn|bad|info)/) || [])[1];
+          if (fam) bar.classList.add("dbar-" + fam);
+          var word = bar.querySelector("span");
+          if (word) word.textContent = btn.textContent.trim();
+        }
+      }, 1200);
     });
   });
 

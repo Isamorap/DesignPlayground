@@ -384,6 +384,10 @@ code {
 .btn-ghost:hover { background: var(--bg-sunken); color: var(--text-strong); }
 .btn-danger { background: var(--bad-solid); color: #fff; }
 .btn-danger:hover { filter: brightness(0.94); }
+/* Claro para contextos sobre foto (mismo que el CTA de Inicio del Forms). */
+.btn-light { background: #fff; color: var(--brand-navy); box-shadow: var(--shadow-1); }
+.btn-light:hover { background: rgba(255, 255, 255, 0.9); }
+.btn-light .btn-ring { background: rgba(0, 51, 78, 0.12); }
 .btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
 .btn-ring {
   width: 28px; height: 28px; border-radius: 50%;
@@ -402,6 +406,8 @@ code {
   display: flex; flex-direction: column; align-items: center; gap: var(--space-3);
 }
 .btn-cell > span:last-child { font-size: var(--text-small); color: var(--text-soft); }
+.btn-cell-dark { background: var(--brand-navy-deep); border-color: transparent; }
+.btn-cell-dark > span:last-child { color: rgba(255, 255, 255, 0.7); }
 
 /* ---- Estado: pill (vocabulario) + tarjeta de captura (misma que Forms) ---- */
 .pill-row { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-8); }
@@ -869,6 +875,15 @@ table.ops .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .save-row .material-symbols-outlined { font-size: 16px; }
 .spin { animation: rot 1s linear infinite; }
 @keyframes rot { to { transform: rotate(360deg); } }
+/* Ciclo de guardado demo (5s en loop, como el Forms): círculo+texto,
+   luego check+Guardado, salida. Fases apiladas para no mover layout. */
+.save-cycle { display: grid; }
+.save-phase { grid-area: 1 / 1; display: inline-flex; align-items: center; gap: 6px; opacity: 0; white-space: nowrap; }
+.save-doing { animation: doing 5s ease-in-out infinite; }
+.save-done { color: var(--ok-fg); animation: done 5s ease-in-out infinite; }
+.save-phase .material-symbols-outlined { font-size: 16px; }
+@keyframes doing { 0% { opacity: 0; } 5% { opacity: 1; } 45% { opacity: 1; } 60%, 100% { opacity: 0; } }
+@keyframes done { 0%, 50% { opacity: 0; } 65% { opacity: 1; } 75% { opacity: 1; } 95%, 100% { opacity: 0; } }
 .rules { list-style: none; margin: var(--space-8) 0 0; padding: 0; display: grid; gap: var(--space-2); max-width: 720px; }
 .rules li {
   background: var(--bg-raised);
@@ -953,6 +968,7 @@ table.ops .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
   .rv { opacity: 1; transform: none; }
+  .save-cycle .save-doing { opacity: 1; }
 }
 
 /* ---- Transparencia reducida: el vidrio pasa a sólido ---- */

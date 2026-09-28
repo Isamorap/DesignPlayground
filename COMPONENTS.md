@@ -18,6 +18,7 @@ numerados `01–10`, cierra con clic afuera, Escape o al navegar.
 | `.btn-accent`       | Acción de temporada/especial (cobre)    |
 | `.btn-secondary`    | Acción secundaria con borde             |
 | `.btn-ghost`        | Cancelar, volver, terciarias            |
+| `.btn-light`        | Sobre foto (CTA de Inicio: pastilla blanca) |
 | `.btn-danger`       | Destructivas (reiniciar, eliminar)      |
 | `.btn-lg` / `.btn-sm` | Tamaños; base sin sufijo              |
 | `.btn-block`        | Full-width (solo móvil)                 |
@@ -74,9 +75,10 @@ Grid táctil (mín. 46px) con un activo por tarjeta (radio, no toggle).
 El color va en el BOTÓN según su estado (como el `CHIP` del Forms):
 activo = ✓ + tinte + texto de su familia; inactivo = punto · gris.
 En la demo, activar un chip actualiza la `.dbar` de su tarjeta (palabra
-y color, como el PATCH real).
-Orden fijo por severidad: Abierto, En espera, Cerrado (el Forms hoy usa
-Abierto, Cerrado, En espera: al adoptar el sistema se reordena).
+y color) con ventana de 1200ms: si cambia de nuevo antes, se reinicia.
+Regla de verdad: el chip responde optimista (control), la barra solo
+pinta lo confirmado por el server (como el Forms).
+Orden fijo por severidad: Abierto, En espera, Cerrado (igual que el Forms).
 
 ## Tarjeta display — `.dgrid` + `.dcard` + `.dbar .dbar-{ok,warn,bad,info}`
 
@@ -201,6 +203,11 @@ tabs, segmentado, bottom-bar); 32px mínimo en acciones compactas
 (iconos, botones sm, menú). `.save-row` (spinner `progress_activity` 16px +
 micro-texto; en móvil solo icono con `aria-label`): la captura es
 autoguardado con debounce — texto 1.5s, hora 1.2s — sin botón enviar.
+El Forms lo ubica bajo el nombre (misma línea visual del título);
+la fila `.save-row` queda como variante bajo los chips.
+`.save-cycle` (fases `.save-doing` / `.save-done` apiladas) demuestra el
+ciclo en loop de 5s con fundido cruzado: círculo+texto → check+Guardado
+→ salida (en vivo: spinner mínimo 600ms + confirmación con morph).
 Reglas: `100dvh`
 (nunca `h-screen`), iconos ≥16px, hero con CTA visible sin scroll.
 Ver sección Responsive de `index.html` (frames 1280 vs 390).
@@ -246,6 +253,9 @@ Una familia de símbolos por proyecto (hoy, Material en las 3 apps).
   24 lift/act · 28 display. Nunca deformar (width auto).
 - Por tema: negros solo sobre claro; toda imagen con variante clara lleva
   `data-dark-src` y `app.js` la intercambia (misma convención del Forms).
+  En el Forms: lifts conmutan a `blancos/` por `isDark`; actividades,
+  clima y cadenas (sin variante) llevan `.icono-negro` que se invierte
+  en dark.
 
 ## Verano (`#verano` — toggle funcional)
 
